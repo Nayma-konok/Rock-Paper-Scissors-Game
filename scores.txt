@@ -1,0 +1,8 @@
+
+User: 1 | Computer: 0 → You Win!
+User: 1 | Computer: 1 → Computer wins!
+User: 2 | Computer: 1 → You Win!
+User: 2 | Computer: 2 → Computer wins!
+User Score: 2
+Computer Score: 2
+Draws: 0

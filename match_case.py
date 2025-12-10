@@ -14,23 +14,25 @@ while True:
 
     computer = random.choice(choices)
 
-
     match (user, computer):
         case ("rock", "scissors")|("paper", "rock")|("scissors", "paper"): 
-            print("You win!")
             user_scores += 1
+            result=f"User: {user_scores} | Computer: {computer_scores} → You Win!"
         case ("rock", "paper")|("paper", "scissors")|("scissors", "rock"):
-            print("Computer wins!")
             computer_scores += 1
+            result=f"User: {user_scores} | Computer: {computer_scores} → Computer wins!"
         case ("rock", "rock")|("paper", "paper")|("scissors", "scissors"):
-            print("Draw")
             draws += 1
+            result=f"User: {user_scores} | Computer: {computer_scores} → DRAW.."
         case _:
             print("Invalid Choice")
-        
+            continue
 
-    print(f"Computer chose: {computer}")
-    print(f"Scoreboard → You: {user_scores} | Computer: {computer_scores} | Draws: {draws}")  
+    with open("scores.txt","a", encoding="utf-8") as file:
+        file.write(result+ "\n")
 
-print("Thanks for playing! Final Scoreboard:")
-print(f"You: {user_scores} | Computer: {computer_scores} | Draws: {draws}")  
+with open("scores.txt","a", encoding="utf-8") as file:
+    file.write(f"User Score: {user_scores}\n")
+    file.write(f"Computer Score: {computer_scores}\n")
+    file.write(f"Draws: {draws}\n")
+
